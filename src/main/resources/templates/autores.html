@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autores</title>
+</head>
+<body>
+    <h1>Autores</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>País</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="autor:${autores}">
+                <td th:text="${autor.id}"></td>
+                <td th:text="${autor.nombre}"></td>
+                <td th:text="${autor.nacionalidad}"></td>
+                <td><a th:href="@{'/editarautores/' + ${autor.id}}">Editar</a></td>
+                <td><a th:href="@{'/eliminarautores/' + ${autor.id}}" onclick="return confirm('¿Estás seguro de que quieres eliminar este autor?');">Eliminar</a></td>
+            </tr>
+        </tbody>
+        
+        
+    </table>
+
+    <a href="/registrarautores">Nuevo autor</a>
+
+    
+</body>
+</html>
