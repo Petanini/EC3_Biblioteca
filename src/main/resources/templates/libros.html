@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autores</title>
+</head>
+<body>
+    <h1>Autores</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titulo</th>
+                <th>Nombre del autor</th>
+                <th>Genero</th>
+                <th>Editorial</th>
+                <th>Año de publicación</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="libro:${libros}">
+                <td th:text="${libro.id}"></td>
+                <td th:text="${libro.titulo}"></td>
+                <td th:text="${libro.autor.nombre}"></td>
+                <td th:text="${libro.genero.nombre}"></td>
+                <td th:text="${libro.editorial}"></td>
+                <td th:text="${libro.anio_publicacion}"></td>
+                <td><a th:href="@{'/editarlibros/' + ${libro.id}}">Editar</a></td>
+                <td><a th:href="@{'/eliminarlibros/' + ${libro.id}}" onclick="return confirm('¿Estás seguro de que quieres eliminar este libro?');">Eliminar</a></td>
+            </tr>
+        </tbody>
+        
+        
+    </table>
+
+    <a href="/registrarlibros">Nuevo libro</a>
+
+    
+</body>
+</html>

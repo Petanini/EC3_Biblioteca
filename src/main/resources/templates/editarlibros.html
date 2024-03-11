@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulario actualización de libros</h1>
+
+    <form method="POST" th:action="@{/editarlibrossave/{id}(id=${objcontrolador.id})}" th:object="${objcontrolador}">
+        <label for="titulo" >Titulo</label>
+        <input type="text" th:field="*{titulo}" name="titulo" id="titulo">
+        <br>
+        <label for="autor" >Autor</label>
+        <select name="autor" th:field="*{autor.id}" id="autor">
+            <option th:each="autor : ${autores}" th:value="${autor.id}" th:text="${autor.nombre}"></option>
+        </select>
+        <br>
+        <label for="genero" >Genero</label>
+        <select name="genero" th:field="*{genero.id}" id="genero">
+            <option th:each="genero : ${generos}" th:value="${genero.id}" th:text="${genero.nombre}"></option>
+        </select>
+        <br>
+        <label for="editorial" >Editorial</label>
+        <input type="text" name="editorial" th:field="*{editorial}" id="editorial">
+        <br>
+        <label for="anio">Año de publicación</label>
+        <input type="text" name="anio_publicacion" th:field="*{anio_publicacion}" id="anio_publicacion">
+        <br>
+        <input type="submit" value="Actualizar">
+    </form>
+
+    <a href="/libros">Volver</a>
+</body>
+</html>

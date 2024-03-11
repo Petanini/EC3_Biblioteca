@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 
@@ -19,17 +21,19 @@ public class LibrosEntity {
     @Column
     private String titulo;
 
-    @Column
-    private int autor_id;
+    @ManyToOne
+    @JoinColumn(name="autor_id")
+    private AutoresEntity autor;
 
-    @Column
-    private int genero_id;
+    @ManyToOne
+    @JoinColumn(name="genero_id")
+    private GenerosEntity genero;
 
     @Column
     private String editorial;
 
     @Column
-    private int anio;
+    private int anio_publicacion;
 
     public int getId() {
         return id;
@@ -47,20 +51,20 @@ public class LibrosEntity {
         this.titulo = titulo;
     }
 
-    public int getAutor_id() {
-        return autor_id;
+    public AutoresEntity getAutor() {
+        return autor;
+    }
+    
+    public void setAutor(AutoresEntity autor) {
+        this.autor = autor;
     }
 
-    public void setAutor_id(int autor_id) {
-        this.autor_id = autor_id;
+    public GenerosEntity getGenero() {
+        return genero;
     }
 
-    public int getGenero_id() {
-        return genero_id;
-    }
-
-    public void setGenero_id(int genero_id) {
-        this.genero_id = genero_id;
+    public void setGenero(GenerosEntity genero) {
+        this.genero = genero;
     }
 
     public String getEditorial() {
@@ -71,12 +75,11 @@ public class LibrosEntity {
         this.editorial = editorial;
     }
 
-    public int getAnio() {
-        return anio;
+    public int getAnio_publicacion() {
+        return anio_publicacion;
     }
 
-    public void setAnio(int anio) {
-        this.anio = anio;
+    public void setAnio_publicacion(int anio_publicacion) {
+        this.anio_publicacion = anio_publicacion;
     }
-
 }

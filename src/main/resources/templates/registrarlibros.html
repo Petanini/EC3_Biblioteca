@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulario registro de libros</h1>
+
+    <form method="POST" th:action="@{/crearlibros}" th:object="${objentidad}">
+        <label for="titulo" >Titulo</label>
+        <input type="text" name="titulo" id="titulo">
+        <br>
+        <label for="autor" >Autor</label>
+        <select name="autor" id="autor">
+            <option th:each="autor : ${autores}" th:value="${autor.id}" th:text="${autor.nombre}"></option>
+        </select>
+        <br>
+        <label for="genero" >Genero</label>
+        <select name="genero" id="genero">
+            <option th:each="genero : ${generos}" th:value="${genero.id}" th:text="${genero.nombre}"></option>
+        </select>
+        <br>
+        <label for="editorial" >Editorial</label>
+        <input type="text" name="editorial"  id="editorial">
+        <br>
+        <label for="anio">Año de publicación</label>
+        <input type="text" name="anio_publicacion" id="anio_publicacion">
+        <br>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <a href="/libros">Volver</a>
+</body>
+</html>
