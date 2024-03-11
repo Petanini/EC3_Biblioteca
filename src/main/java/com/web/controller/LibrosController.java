@@ -3,7 +3,6 @@ package com.web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.web.model.GenerosEntity;
 import com.web.model.LibrosEntity;
 import com.web.service.AutoresService;
 import com.web.service.GenerosService;

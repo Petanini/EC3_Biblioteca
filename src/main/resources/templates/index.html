@@ -6,26 +6,16 @@
     <title>Autores</title>
 </head>
 <body>
-    <h1>Autores</h1>
+    <h1>Menú Principal</h1>
+
+    <ul>
+        <li><a th:href="@{'/autores'}">Autores</a></li>
+        <li><a th:href="@{'/generos'}">Generos</a></li>
+        <li><a th:href="@{'/libros'}">Libros</a></li>
+        <li><a th:href="@{'/usuarios'}">Usuarios</a></li>
+        <li><a th:href="@{'/prestamos'}">Prestamos(Aun no esta listo)</a></li>
+    </ul>
     
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>País</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="autor:${autores}">
-                <td th:text="${autor.id}"></td>
-                <td th:text="${autor.nombre}"></td>
-                <td th:text="${autor.pais}"></td>
-            </tr>
-        </tbody>
-        
-        
-    </table>
     
 </body>
 </html>

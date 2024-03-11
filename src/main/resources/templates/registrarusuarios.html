@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulario registro de usuarios</h1>
+
+    <form method="POST" th:action="@{/crearusuarios}" th:object="${objentidad}">
+        <label for="nombre" >Nombre</label>
+        <input type="text" name="nombre" id="nombre">
+        <br>
+        <label for="correo">Correo</label>
+        <input type="text" name="correo" id="correo">
+        <br>
+        <label for="telefono">Teléfono</label>
+        <input type="text" name="telefono" id="telefono">
+        <br>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <a href="/usuarios">Volver</a>
+</body>
+</html>
