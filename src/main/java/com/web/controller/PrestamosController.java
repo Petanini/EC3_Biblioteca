@@ -20,9 +20,6 @@ public class PrestamosController {
     private PrestamosService service;
 
     @Autowired
-    private PrestamosService prestamosService;
-
-    @Autowired
     private LibrosService librosService;
 
     @Autowired
