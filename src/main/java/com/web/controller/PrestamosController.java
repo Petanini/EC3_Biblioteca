@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.web.model.PrestamosEntity;
+import com.web.service.LibrosService;
 import com.web.service.PrestamosService;
 import com.web.service.UsuariosService;
 
@@ -22,6 +23,9 @@ public class PrestamosController {
     private PrestamosService prestamosService;
 
     @Autowired
+    private LibrosService librosService;
+
+    @Autowired
     private UsuariosService usuariosService;
 
     @GetMapping("/prestamos")
@@ -32,7 +36,7 @@ public class PrestamosController {
 
     @GetMapping("/registrarprestamos")
     public String mostrarRegistro(Model model) {
-        model.addAttribute("prestamos", this.prestamosService.listarPrestamos());
+        model.addAttribute("libros", this.librosService.listarLibros());
         model.addAttribute("usuarios", this.usuariosService.listarUsuarios());
         return "registrarprestamos";
     }
@@ -49,7 +53,7 @@ public class PrestamosController {
 
     @GetMapping("/editarprestamos/{id}")
     public String editarPrestamos(@PathVariable int id, Model model) {
-        model.addAttribute("prestamos", this.prestamosService.listarPrestamos());
+        model.addAttribute("libros", this.librosService.listarLibros());
         model.addAttribute("usuarios", this.usuariosService.listarUsuarios());
         model.addAttribute("objcontrolador", this.service.buscarPrestamos(id));
         return "editarprestamos";

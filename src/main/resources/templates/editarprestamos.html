@@ -53,13 +53,13 @@
 
             <div class="mb-3">
                 <label for="fecha_prestamo" class="form-label fw-bold">Fecha Prestamo</label>
-                <input type="text" class="form-control" id="fecha_prestamo" name="afecha_prestamo" th:field="*{fecha_prestamo}" required>
+                <input type="date" class="form-control" id="fecha_prestamo" name="afecha_prestamo" th:field="*{fecha_prestamo}" required disabled>
                 <div class="invalid-feedback">Por favor, ingrese la Fecha Prestamo.</div>
             </div>
 
             <div class="mb-3">
                 <label for="fecha_devolucion" class="form-label fw-bold">Fecha Devolucion</label>
-                <input type="text" class="form-control" id="fecha_devolucion" name="fecha_devolucion" th:field="*{fecha_devolucion}" required>
+                <input type="date" class="form-control" id="fecha_devolucion" name="fecha_devolucion" th:field="*{fecha_devolucion}" required>
                 <div class="invalid-feedback">Por favor, ingrese la Fecha Devolucion.</div>
             </div>
     
