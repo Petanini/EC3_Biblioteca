@@ -7,7 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-5 mt-4" style="border-radius: 60px; box-shadow: 0 0 15px #000000;">
             <div class="container-fluid">
@@ -29,32 +28,42 @@
             </div>
         </nav>
     </div>
-
-    <div class="container mt-5 p-5" style="border: 4px solid #000; border-radius: 60px;">
-        <h2 class="mb-5">Registrar Usuarios</h2>
     
-        <form method="POST" th:action="@{/crearusuarios}" th:object="${objentidad}" class="mb-4">
+    <div class="container mt-4 p-5" style="border: 4px solid #000; border-radius: 60px;">
+        <h2 class="mb-5">Registrar Prestamos</h2>
+    
+        <form method="POST" th:action="@{/crearlibros}" th:object="${objentidad}" class="mb-4">
             
-            <div class="mb-4">
-                <label for="nombre" class="form-label fw-bold">Nombre</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" required>
-                <div class="invalid-feedback">Por favor, ingrese el nombre.</div>
+            <div class="mb-3">
+                <label for="libro" class="form-label fw-bold">Libro</label>
+                <select class="form-select" id="libro" name="libro" required>
+                    <option th:each="libro : ${libros}" th:value="${libro.id}" th:text="${libro.titulo}"></option>
+                </select>
+                <div class="invalid-feedback">Por favor, seleccione Libro.</div>
             </div>
     
-            <div class="mb-4">
-                <label for="correo" class="form-label fw-bold">Correo</label>
-                <input type="email" class="form-control" id="correo" name="correo" required>
-                <div class="invalid-feedback">Por favor, ingrese un correo válido.</div>
+            <div class="mb-3">
+                <label for="usuario" class="form-label fw-bold">Usuario</label>
+                <select class="form-select" id="usuario" name="usuario" required>
+                    <option th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.nombre}"></option>
+                </select>
+                <div class="invalid-feedback">Por favor, seleccione un Usuario.</div>
             </div>
     
-            <div class="mb-4">
-                <label for="telefono" class="form-label fw-bold">Teléfono</label>
-                <input type="text" class="form-control" id="telefono" name="telefono" required>
-                <div class="invalid-feedback">Por favor, ingrese un número de teléfono.</div>
+            <div class="mb-3">
+                <label for="fecha_prestamo" class="form-label fw-bold">Fecha Prestamo</label>
+                <input type="text" class="form-control" id="fecha_prestamo" name="afecha_prestamo" required>
+                <div class="invalid-feedback">Por favor, ingrese la Fecha Prestamo.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="fecha_devolucion" class="form-label fw-bold">Fecha Devolucion</label>
+                <input type="text" class="form-control" id="fecha_devolucion" name="fecha_devolucion"  required>
+                <div class="invalid-feedback">Por favor, ingrese la Fecha Devolucion.</div>
             </div>
     
             <button type="submit" class="btn btn-primary me-2"><i class="bi bi-arrow-clockwise"></i> Guardar</button>
-            <a href="/usuarios" class="btn btn-danger"><i class="bi bi-arrow-left"></i> Volver</a>
+            <a href="/prestamos" class="btn btn-danger"><i class="bi bi-arrow-left"></i> Volver</a>
         
         </form>
     </div>

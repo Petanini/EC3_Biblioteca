@@ -7,8 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-5 mt-4" style="border-radius: 60px;">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-5 mt-4" style="border-radius: 60px; box-shadow: 0 0 15px #000000;">
             <div class="container-fluid">
                 <div class="titulo">
                     <h1 class="text-white">Biblioteca</h1>
@@ -30,21 +31,42 @@
     </div>
 
     <div class="container mt-5 p-5" style="border: 4px solid #000; border-radius: 60px;">
-        <h1 class="mb-5">Editar Generos</h1>
-
-        <form method="POST" th:action="@{/editargenerossave/{id}(id=${objcontrolador.id})}" th:object="${objcontrolador}">
+        <h1 class="mb-5">Editar Prestamos</h1>
+    
+        <form method="POST" th:action="@{/editarprestamossave/{id}(id=${objcontrolador.id})}" th:object="${objcontrolador}">
             
-            <div class="mb-4">
-                <label for="nombre" class="form-label fw-bold">Nombre del genero</label>
-                <input type="text" class="form-control" name="nombre" th:field="*{nombre}" id="nombre">    
-                <div class="invalid-feedback">Por favor, ingrese Nombre del genero.</div>
+            <div class="mb-3">
+                <label for="libro" class="form-label fw-bold">Libro</label>
+                <select name="libro" id="libro" class="form-select" th:field="*{libro.id}" required>
+                    <option th:each="libro : ${libros}" th:value="${libro.id}" th:text="${libro.titulo}"></option>
+                </select>
+                <div class="invalid-feedback">Por favor, seleccione un Libro.</div>
             </div>
 
-            <button type="submit" class="btn btn-primary me-2"><i class="bi bi-arrow-clockwise"></i> Actualizar</button>
-            <a class="btn btn-danger" href="/generos"><i class="bi bi-arrow-left"></i> Volver</a>
-        </form>
+            <div class="mb-3">
+                <label for="usuario" class="form-label fw-bold">Usuario</label>
+                <select name="usuario" id="usuario" class="form-select" th:field="*{usuario.id}" required>
+                    <option th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.nombre}"></option>
+                </select>
+                <div class="invalid-feedback">Por favor, seleccione un Usuario.</div>
+            </div>
 
-    </div>
+            <div class="mb-3">
+                <label for="fecha_prestamo" class="form-label fw-bold">Fecha Prestamo</label>
+                <input type="text" class="form-control" id="fecha_prestamo" name="afecha_prestamo" th:field="*{fecha_prestamo}" required>
+                <div class="invalid-feedback">Por favor, ingrese la Fecha Prestamo.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="fecha_devolucion" class="form-label fw-bold">Fecha Devolucion</label>
+                <input type="text" class="form-control" id="fecha_devolucion" name="fecha_devolucion" th:field="*{fecha_devolucion}" required>
+                <div class="invalid-feedback">Por favor, ingrese la Fecha Devolucion.</div>
+            </div>
+    
+            <button type="submit" class="btn btn-primary me-2"><i class="bi bi-arrow-clockwise"></i> Actualizar</button>
+            <a class="btn btn-danger" href="/prestamos"><i class="bi bi-arrow-left"></i> Volver</a>
+        </form>
+    </div>    
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script></body>
