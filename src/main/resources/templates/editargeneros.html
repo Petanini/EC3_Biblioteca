@@ -36,7 +36,7 @@
             
             <div class="mb-4">
                 <label for="nombre" class="form-label fw-bold">Nombre del genero</label>
-                <input type="text" class="form-control" name="nombre" th:field="*{nombre}" id="nombre">    
+                <input type="text" class="form-control" name="nombre" th:field="*{nombre}" id="nombre" required minlength="1" maxlength="100">    
                 <div class="invalid-feedback">Por favor, ingrese Nombre del genero.</div>
             </div>
 

@@ -36,10 +36,10 @@
         <form method="POST" th:action="@{/editarlibrossave/{id}(id=${objcontrolador.id})}" th:object="${objcontrolador}">
             <div class="mb-3">
                 <label for="titulo" class="form-label fw-bold">Título</label>
-                <input type="text" class="form-control" id="titulo" name="titulo" th:field="*{titulo}" required>
+                <input type="text" class="form-control" id="titulo" name="titulo" th:field="*{titulo}" required minlength="1" maxlength="100">
                 <div class="invalid-feedback">Por favor, ingrese el título.</div>
             </div>
-    
+
             <div class="mb-3">
                 <label for="autor" class="form-label fw-bold">Autor</label>
                 <select name="autor" id="autor" class="form-select" th:field="*{autor.id}" required>
@@ -47,7 +47,7 @@
                 </select>
                 <div class="invalid-feedback">Por favor, seleccione un autor.</div>
             </div>
-    
+
             <div class="mb-3">
                 <label for="genero" class="form-label fw-bold">Género</label>
                 <select name="genero" id="genero" class="form-select" th:field="*{genero.id}" required>
@@ -55,16 +55,16 @@
                 </select>
                 <div class="invalid-feedback">Por favor, seleccione un género.</div>
             </div>
-    
+
             <div class="mb-3">
                 <label for="editorial" class="form-label fw-bold">Editorial</label>
-                <input type="text" class="form-control" id="editorial" name="editorial" th:field="*{editorial}" required>
+                <input type="text" class="form-control" id="editorial" name="editorial" th:field="*{editorial}" required minlength="1" maxlength="100">
                 <div class="invalid-feedback">Por favor, ingrese la editorial.</div>
             </div>
-    
+
             <div class="mb-3">
                 <label for="anio_publicacion" class="form-label fw-bold">Año de publicación</label>
-                <input type="text" class="form-control" id="anio_publicacion" name="anio_publicacion" th:field="*{anio_publicacion}" required>
+                <input type="text" class="form-control" id="anio_publicacion" name="anio_publicacion" th:field="*{anio_publicacion}" required pattern="[0-9]{4}">
                 <div class="invalid-feedback">Por favor, ingrese el año de publicación.</div>
             </div>
     
